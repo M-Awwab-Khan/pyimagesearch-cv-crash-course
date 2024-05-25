@@ -18,17 +18,17 @@ args = vars(ap.parse_args())
 # get args and concatenate with current directory
 # get current directory
 dirname, filename = os.path.split(os.path.abspath(__file__))
-prototxt = os.path.join(dirname, args["prototxt"])
-model = os.path.join(dirname, args["model"])
-image = os.path.join(dirname, args["image"])
+prototxt = os.path.join(dirname, 'models',  args["prototxt"])
+model = os.path.join(dirname, 'models', args["model"])
+image = os.path.join(dirname, 'images', args["image"])
 
 # load our serialized model from disk
 print("[INFO] loading model...")
-net = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
+net = cv2.dnn.readNetFromCaffe(prototxt, model)
 
 # load the input image and construct an input blob for the image
 # by resizing to a fixed 300x300 pixels and then normalizing it
-image = cv2.imread(args['image'])
+image = cv2.imread(image)
 h, w = image.shape[:2]
 blob = cv2.dnn.blobFromImage(cv2.resize(image, (300, 300)), 1.0, (300, 300), (104.0, 177.0, 123.0))
 
