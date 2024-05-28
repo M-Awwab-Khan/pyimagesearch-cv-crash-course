@@ -31,3 +31,18 @@ cv2.waitKey(0)
 thresh = cv2.threshold(gray, 225, 255, cv2.THRESH_BINARY_INV)[1]
 cv2.imshow("Thresh", thresh)
 cv2.waitKey(0)
+
+# find contours (i.e., outlines) of the foreground objects in the
+# thresholded image
+cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
+	cv2.CHAIN_APPROX_SIMPLE)
+cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+output = image.copy()
+ 
+# loop over the contours
+for c in cnts:
+	# draw each contour on the output image with a 3px thick purple
+	# outline, then display the output contours one at a time
+	cv2.drawContours(output, [c], -1, (240, 0, 159), 3)
+	cv2.imshow("Contours", output)
+	cv2.waitKey(0)
