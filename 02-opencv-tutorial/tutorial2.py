@@ -18,3 +18,9 @@ cv2.waitKey(0)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 cv2.imshow("Gray", gray)
 cv2.waitKey(0)
+
+# applying edge detection we can find the outlines of objects in
+# images
+edged = cv2.Canny(gray, 30, 150)
+cv2.imshow("Edged", edged)
+cv2.waitKey(0)
