@@ -53,3 +53,15 @@ cv2.putText(output, text, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX, 0.7,
 	(240, 0, 159), 2)
 cv2.imshow("Contours", output)
 cv2.waitKey(0)
+
+# we apply erosions to reduce the size of foreground objects
+mask = thresh.copy()
+mask = cv2.erode(mask, None, iterations=5)
+cv2.imshow("Eroded", mask)
+cv2.waitKey(0)
+
+# similarly, dilations can increase the size of the ground objects
+mask = thresh.copy()
+mask = cv2.dilate(mask, None, iterations=5)
+cv2.imshow("Dilated", mask)
+cv2.waitKey(0)
