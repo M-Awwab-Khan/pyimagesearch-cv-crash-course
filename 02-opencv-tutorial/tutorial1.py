@@ -51,3 +51,14 @@ M = cv2.getRotationMatrix2D(center, -45, 1.0)
 rotated = cv2.warpAffine(image, M, (w, h))
 cv2.imshow("OpenCV Rotation", rotated)
 cv2.waitKey(0)
+
+# rotation can also be easily accomplished via imutils with less code
+rotated = imutils.rotate(image, -45)
+cv2.imshow("Imutils Rotation", rotated)
+cv2.waitKey(0)
+
+# OpenCV doesn't "care" if our rotated image is clipped after rotation
+# so we can instead use another imutils convenience function to help us out
+rotated = imutils.rotate_bound(image, 45)
+cv2.imshow("Imutils Bound Rotation", rotated)
+cv2.waitKey(0)
