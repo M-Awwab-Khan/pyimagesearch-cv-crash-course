@@ -62,3 +62,9 @@ cv2.waitKey(0)
 rotated = imutils.rotate_bound(image, 45)
 cv2.imshow("Imutils Bound Rotation", rotated)
 cv2.waitKey(0)
+
+# apply a Gaussian blur with a 11x11 kernel to the image to smooth it,
+# useful when reducing high frequency noise
+blurred = cv2.GaussianBlur(image, (11, 11), 0)
+cv2.imshow("Blurred", blurred)
+cv2.waitKey(0)
