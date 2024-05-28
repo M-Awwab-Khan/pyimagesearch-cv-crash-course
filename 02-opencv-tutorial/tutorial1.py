@@ -74,3 +74,10 @@ output = image.copy()
 cv2.rectangle(output, (320, 60), (420, 160), (0, 0, 255), 2)
 cv2.imshow("Rectangle", output)
 cv2.waitKey(0)
+
+# draw a blue 20px (filled in) circle on the image centered at
+# x=300,y=150
+output = image.copy()
+cv2.circle(output, (300, 150), 20, (255, 0, 0), -1)
+cv2.imshow("Circle", output)
+cv2.waitKey(0)
