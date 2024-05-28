@@ -36,7 +36,7 @@ cv2.waitKey(0)
 # thresholded image
 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
 	cv2.CHAIN_APPROX_SIMPLE)
-cnts = cnts[0] if imutils.is_cv2() else cnts[1]
+cnts = imutils.grab_contours(cnts)
 output = image.copy()
  
 # loop over the contours
