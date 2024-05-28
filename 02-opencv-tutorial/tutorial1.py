@@ -36,3 +36,9 @@ dim = (300, int(h * r))
 resized = cv2.resize(image, dim)
 cv2.imshow("Aspect Ratio Resize", resized)
 cv2.waitKey(0)
+
+# manually computing the aspect ratio can be a pain so let's use the
+# imutils library instead
+resized = imutils.resize(image, width=300)
+cv2.imshow("Imutils Resize", resized)
+cv2.waitKey(0)
