@@ -46,3 +46,10 @@ for c in cnts:
 	cv2.drawContours(output, [c], -1, (240, 0, 159), 3)
 	cv2.imshow("Contours", output)
 	cv2.waitKey(0)
+	
+# draw the total number of contours found in purple
+text = "I found {} objects!".format(len(cnts))
+cv2.putText(output, text, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX, 0.7,
+	(240, 0, 159), 2)
+cv2.imshow("Contours", output)
+cv2.waitKey(0)
