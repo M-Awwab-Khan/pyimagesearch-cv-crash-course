@@ -12,3 +12,14 @@ print("width={}, height={}, depth={}".format(w, h, d))
 # open by OpenCV and press a key on our keyboard to continue execution
 cv2.imshow("Image", image)
 cv2.waitKey(0)
+
+# access the RGB pixel located at x=50, y=100, keepind in mind that
+# OpenCV stores images in BGR order rather than RGB
+(B, G, R) = image[100, 50]
+print("R={}, G={}, B={}".format(R, G, B))
+
+# extract a 100x100 pixel square ROI (Region of Interest) from the
+# input image starting at x=320,y=60 at ending at x=420,y=160
+roi = image[60:160, 320:420]
+cv2.imshow("ROI", roi)
+cv2.waitKey(0)
