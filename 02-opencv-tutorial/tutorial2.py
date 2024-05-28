@@ -65,3 +65,11 @@ mask = thresh.copy()
 mask = cv2.dilate(mask, None, iterations=5)
 cv2.imshow("Dilated", mask)
 cv2.waitKey(0)
+
+# a typical operation we may want to apply is to take our mask and
+# apply a bitwise AND to our input image, keeping only the masked
+# regions
+mask = thresh.copy()
+output = cv2.bitwise_and(image, image, mask=mask)
+cv2.imshow("Output", output)
+cv2.waitKey(0)
